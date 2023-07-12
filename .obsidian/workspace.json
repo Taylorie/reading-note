@@ -129,7 +129,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -145,7 +146,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "3cd7ef88d73af6fd",
+  "active": "7f7059cc4ba2a484",
   "lastOpenFiles": [
     "漫画算法：小灰的算法之旅/images/image-20230711174323234.png",
     "漫画算法：小灰的算法之旅/images/image-20230711174304180.png",
