@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "漫画算法：小灰的算法之旅/漫画算法：小灰的算法之旅.md",
+                "file": "SQL教程/SQL教程.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,8 +85,8 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "漫画算法：小灰的算法之旅/漫画算法：小灰的算法之旅.md",
-                "collapseAll": false,
+                "file": "SQL教程/SQL教程.md",
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "漫画算法：小灰的算法之旅/漫画算法：小灰的算法之旅.md",
+                "file": "SQL教程/SQL教程.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "漫画算法：小灰的算法之旅/漫画算法：小灰的算法之旅.md"
+                "file": "SQL教程/SQL教程.md"
               }
             }
           }
@@ -146,29 +146,31 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "3cd7ef88d73af6fd",
+  "active": "3af9b7e0efe5bc15",
   "lastOpenFiles": [
     "conflict-files-obsidian-git.md",
-    "漫画算法：小灰的算法之旅/漫画算法：小灰的算法之旅.md",
     "SQL教程/SQL教程.md",
-    "SQL教程/新建 文本文档.txt",
-    "SQL教程/新建文件夹",
-    "SQL教程",
-    "新建文件夹",
-    "大话设计模式/大话设计模式.md",
-    "漫画算法：小灰的算法之旅/images/image-20230713143744877.png",
     "Java实战第二版/Java实战第二版.md",
-    "Java实战第二版",
+    "漫画算法：小灰的算法之旅/漫画算法：小灰的算法之旅.md",
+    "大话设计模式/大话设计模式.md",
+    "漫画算法：小灰的算法之旅/Untitled 1.md",
+    "漫画算法：小灰的算法之旅/Untitled.md",
+    "SQL教程",
+    "漫画算法：小灰的算法之旅/images/image-20230713143744877.png",
+    "大话设计模式/大话设计模式.,d",
+    "大话设计模式/新建 文本文档.txt",
     "大话设计模式",
-    "漫画算法：小灰的算法之旅/images/image-20230711174323234.png",
-    "漫画算法：小灰的算法之旅/images/image-20230711174304180.png",
-    "漫画算法：小灰的算法之旅/images/image-20230711174247693.png",
-    "漫画算法：小灰的算法之旅/images/image-20230711174243616.png",
-    "漫画算法：小灰的算法之旅/images/image-20230711174116392.png",
-    "漫画算法：小灰的算法之旅/images/image-20230711173919352.png",
-    "漫画算法：小灰的算法之旅/images/image-20230711173837819.png",
-    "漫画算法：小灰的算法之旅/images/image-20230711173332473.png",
-    "漫画算法：小灰的算法之旅/images/image-20230711173320055.png",
+    "大话设计模式哦",
+    "新建文件夹",
+    "漫画算法：小灰的算法之旅/images/image-20230711204915552.png",
+    "漫画算法：小灰的算法之旅/images/image-20230711204913022.png",
+    "漫画算法：小灰的算法之旅/images/image-20230711204714725.png",
+    "漫画算法：小灰的算法之旅/images/image-20230711204707755.png",
+    "漫画算法：小灰的算法之旅/images/image-20230711204654198.png",
+    "漫画算法：小灰的算法之旅/images/image-20230711204640210.png",
+    "漫画算法：小灰的算法之旅/images/image-20230711204633046.png",
+    "漫画算法：小灰的算法之旅/images/image-20230711204359334.png",
+    "漫画算法：小灰的算法之旅/images/image-20230711204356801.png",
     "漫画算法：小灰的算法之旅/images",
     "漫画算法：小灰的算法之旅/漫画suanfa：小灰的算法之旅.md",
     "漫画算法：小灰的算法之旅",
