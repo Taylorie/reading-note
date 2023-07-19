@@ -52,3 +52,19 @@ alter table <> change column <> <> varchar(128) not null -- mysql 修改列名
 ---
 
 # 2.查询基础
+
+## 1.where 查询
+
+先通过 where 字句查询出符合条件的记录，再使用 select 选择指定列
+
+---
+
+## 2.null
+
+包含 null 的计算，结果都是 null，哪怕是除以0
+
+---
+
+## 3.真值
+
+sql 中除了包含 false 和 true 以外还有 unknow 这样的不确定真值
