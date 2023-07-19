@@ -29,3 +29,15 @@ Lambda表达式由参数、箭头和主体组成
 * Lambda主体——比较两个Apple的重量。表达式就是Lambda的返回值。
 
 ---
+
+### 2.Lambda 格式
+
+```java
+          (1) () -> {}
+          (2) () -> "Raoul"
+          (3) () -> {return "Mario"; }
+          (4) (Integer i) -> return "Alan" + i;
+          (5) (String s) -> {"Iron Man"; }
+```
+
+除了四五均为正确的 Lambda
