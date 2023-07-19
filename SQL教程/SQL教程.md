@@ -28,3 +28,27 @@ SQL 用关键字，表名和列名等组合组成的一条语句
 3. DCL 数据控制
 
 ---
+
+## 4.alter 语句
+
+```sql
+alter table <> add column <> -- 新增列 在除 mysql 外不需要 column
+```
+
+```sql
+alter table <> drop column <> -- 删除列 Oracle 不需要 column
+```
+
+```sql
+alter table <> rename to <> -- oracle 修改表名
+alter table <> to <> -- mysql 修改表名
+alter '<>','<>' -- sqlserver
+```
+
+```sql
+alter table <> change column <> <> varchar(128) not null -- mysql 修改列名
+```
+
+---
+
+# 2.查询基础
