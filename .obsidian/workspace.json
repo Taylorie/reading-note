@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SQL教程/SQL教程.md",
+                "file": "大话设计模式/大话设计模式.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "17ad9e2f44201f74",
@@ -86,8 +85,8 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SQL教程/SQL教程.md",
-                "collapseAll": true,
+                "file": "大话设计模式/大话设计模式.md",
+                "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SQL教程/SQL教程.md",
+                "file": "大话设计模式/大话设计模式.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SQL教程/SQL教程.md"
+                "file": "大话设计模式/大话设计模式.md"
               }
             }
           }
@@ -147,38 +146,36 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "3af9b7e0efe5bc15",
+  "active": "3cd7ef88d73af6fd",
   "lastOpenFiles": [
     "大话设计模式/images/Strategy_Pattern_in_UML.png",
-    "大话设计模式/images/Strategy_Pattern_in_UML-16899231586451.png",
+    "Java实战第二版/Java实战第二版.md",
+    "大话设计模式/images/image-20230720172556765.png",
+    "大话设计模式/images/image-20230720172512421.png",
+    "大话设计模式/images/image-20230720171917156.png",
+    "大话设计模式/images/image-20230720171910093.png",
+    "大话设计模式/images/image-20230720171635014.png",
+    "大话设计模式/images/image-20230720171617579.png",
+    "大话设计模式/images/image-20230720171433950.png",
+    "大话设计模式/images/image-20230720171346935.png",
+    "大话设计模式/images/image-20230720171257886.png",
+    "大话设计模式/images/image-20230720171248286.png",
+    "大话设计模式/images",
+    "漫画算法：小灰的算法之旅/漫画算法：小灰的算法之旅.md",
     "conflict-files-obsidian-git.md",
     "SQL教程/SQL教程.md",
-    "Java实战第二版/Java实战第二版.md",
-    "漫画算法：小灰的算法之旅/漫画算法：小灰的算法之旅.md",
-    "大话设计模式/大话设计模式.md",
-    "漫画算法：小灰的算法之旅/Untitled 1.md",
-    "漫画算法：小灰的算法之旅/Untitled.md",
+    "SQL教程/新建 文本文档.txt",
+    "SQL教程/新建文件夹",
     "SQL教程",
-    "漫画算法：小灰的算法之旅/images/image-20230713143744877.png",
-    "大话设计模式/大话设计模式.,d",
-    "大话设计模式/新建 文本文档.txt",
-    "大话设计模式",
-    "大话设计模式哦",
     "新建文件夹",
-    "漫画算法：小灰的算法之旅/images/image-20230711204915552.png",
-    "漫画算法：小灰的算法之旅/images/image-20230711204913022.png",
-    "漫画算法：小灰的算法之旅/images/image-20230711204714725.png",
-    "漫画算法：小灰的算法之旅/images/image-20230711204707755.png",
-    "漫画算法：小灰的算法之旅/images/image-20230711204654198.png",
-    "漫画算法：小灰的算法之旅/images/image-20230711204640210.png",
-    "漫画算法：小灰的算法之旅/images/image-20230711204633046.png",
-    "漫画算法：小灰的算法之旅/images/image-20230711204359334.png",
+    "大话设计模式/大话设计模式.md",
+    "Java实战第二版",
+    "大话设计模式",
     "漫画算法：小灰的算法之旅/images",
     "漫画算法：小灰的算法之旅/漫画suanfa：小灰的算法之旅.md",
     "漫画算法：小灰的算法之旅",
     "算法漫画：小灰的算法之旅/漫画suanfa：小灰的算法之旅.md",
     "算法漫画：小灰的算法之旅/算法漫画：小灰的算法之旅.md",
-    "算法漫画：小灰的算法之旅/新建 文本文档.txt",
-    "算法漫画：小灰的算法之旅"
+    "算法漫画：小灰的算法之旅/新建 文本文档.txt"
   ]
 }
