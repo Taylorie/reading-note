@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "大话设计模式/大话设计模式.md",
+                "file": "SQL教程/SQL教程.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "大话设计模式/大话设计模式.md",
+                "file": "SQL教程/SQL教程.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "大话设计模式/大话设计模式.md",
+                "file": "SQL教程/SQL教程.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "大话设计模式/大话设计模式.md"
+                "file": "SQL教程/SQL教程.md"
               }
             }
           }
@@ -148,6 +148,7 @@
   },
   "active": "3cd7ef88d73af6fd",
   "lastOpenFiles": [
+    "大话设计模式/大话设计模式.md",
     "大话设计模式/images/Strategy_Pattern_in_UML.png",
     "Java实战第二版/Java实战第二版.md",
     "大话设计模式/images/image-20230720172556765.png",
@@ -159,7 +160,6 @@
     "大话设计模式/images/image-20230720171433950.png",
     "大话设计模式/images/image-20230720171346935.png",
     "大话设计模式/images/image-20230720171257886.png",
-    "大话设计模式/images/image-20230720171248286.png",
     "大话设计模式/images",
     "漫画算法：小灰的算法之旅/漫画算法：小灰的算法之旅.md",
     "conflict-files-obsidian-git.md",
@@ -168,7 +168,6 @@
     "SQL教程/新建文件夹",
     "SQL教程",
     "新建文件夹",
-    "大话设计模式/大话设计模式.md",
     "Java实战第二版",
     "大话设计模式",
     "漫画算法：小灰的算法之旅/images",

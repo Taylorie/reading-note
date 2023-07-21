@@ -68,3 +68,8 @@ alter table <> change column <> <> varchar(128) not null -- mysql 修改列名
 ## 3.真值
 
 sql 中除了包含 false 和 true 以外还有 unknow 这样的不确定真值
+
+---
+
+# 3.聚合和排序
+
