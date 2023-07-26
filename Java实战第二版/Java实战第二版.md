@@ -116,3 +116,73 @@ Lambda表达式允许你直接以内联的形式为函数式接口的抽象方�
 ![image-20230726170005739](images/image-20230726170005739.png)
 
 ---
+
+### 7.常见的函数式接口
+
+#### 1.Predicate
+
+java.util.function.Predicate<T>接口定义了一个名叫test的抽象方法，它接受泛型T对象，并返回一个boolean。
+
+这恰恰和你先前创建的一样，现在就可以直接使用了。
+
+在你需要表示一个涉及类型T的布尔表达式时，就可以使用这个接口。
+
+比如，你可以定义一个接受String对象的Lambda表达式，如下所示。
+
+```java
+        @FunctionalInterface
+        public interface Predicate<T> {
+            boolean test(T t);
+        }
+        public <T> List<T> filter(List<T> list, Predicate<T> p) {
+            List<T> results = new ArrayList<>();
+            for(T t: list) {
+                if(p.test(t)) {
+                    results.add(t);
+                }
+            }
+            return results;
+        }
+        Predicate<String> nonEmptyStringPredicate = (String s) -> ! s.isEmpty();
+        List<String> nonEmpty = filter(listOfStrings, nonEmptyStringPredicate);
+```
+
+---
+
+#### 2.Consumer
+
+java.util.function.Consumer<T>接口定义了一个名叫accept的抽象方法，它接受泛型T的对象，没有返回（void）。
+
+你如果需要访问类型T的对象，并对其执行某些操作，就可以使用这个接口。
+
+比如，你可以用它来创建一个forEach方法，接受一个Integers的列表，并对其中每个元素执行操作。
+
+在下面的代码中，你就可以使用这个forEach方法，并配合Lambda来打印列表中的所有元素。
+
+![image-20230726170742150](images/image-20230726170742150.png)
+
+---
+
+#### 3.Function
+
+java.util.function.Consumer<T>接口定义了一个名叫accept的抽象方法，它接受泛型T的对象，没有返回（void）。
+
+你如果需要访问类型T的对象，并对其执行某些操作，就可以使用这个接口。
+
+比如，你可以用它来创建一个forEach方法，接受一个Integers的列表，并对其中每个元素执行操作。
+
+在下面的代码中，你就可以使用这个forEach方法，并配合Lambda来打印列表中的所有元素。
+
+![image-20230726170937065](images/image-20230726170937065.png)
+
+---
+
+Java 8为前面所说的函数式接口带来了一个专门的版本，以便在输入和输出都是基本类型时避免自动装箱的操作
+
+比如，在下面的代码中，使用IntPredicate就避免了对值1000进行装箱操作，但要是用Predicate<Integer>就会把参数1000装箱到一个Integer对象中
+
+![image-20230726171059407](images/image-20230726171059407.png)
+
+一般来说，针对专门的输入参数类型的函数式接口的名称都要加上对应的基本类型前缀，比如DoublePredicate、IntConsumer、LongBinaryOperator、IntFunction等。
+
+Function接口还有针对输出参数类型的变种：ToIntFunction<T>、IntToDoubleFunction等。
