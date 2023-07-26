@@ -83,3 +83,33 @@ Lambda表达式允许你直接以内联的形式为函数式接口的抽象方�
 函数式接口的抽象方法的签名基本上就是Lambda表达式的签名。我们将这种抽象方法叫作函数描述符
 
 方法调用的返回值为空时，Java语言规范有一条特殊的规定。这种情况下，你不需要使用括号环绕返回值为空的单行方法调用
+
+---
+
+以下哪些是使用Lambda表达式的有效方式？
+
+```java 
+(1)execute(() -> {});
+        public void execute(Runnable r){
+           r.run();
+        }
+(2)public Callable<String> fetch() {
+        return () -> "Tricky example   ; -)";
+        }
+(3)Predicate<Apple> p = (Apple a) -> a.getWeight();
+```
+
+答案：只有(1)和(2)是有效的。
+
+第(1)个例子有效，是因为Lambda() -> {}具有签名() -> void，这和Runnable中的抽象方法run的签名相匹配。请注意，此代码运行后什么都不会做，因为Lambda是空的！
+
+第(2)个例子也是有效的。事实上，fetch方法的返回类型是Callable<String>。Callable<String>基本上就定义了一个方法，签名是() -> String，其中T被String代替了。因为Lambda() -> "Trickyexample; -)"的签名是() -> String，所以在这个上下文中可以使用Lambda。
+
+第(3)个例子无效，因为Lambda表达式(Apple a) -> a.getWeight()的签名是(Apple)->Integer，这和Predicate<Apple>: (Apple) -> boolean中定义的test方法的签名不同。
+
+---
+
+### 6.环绕执行模式
+
+打开一个资源，做一些处理，然后关闭资源。这个设置和清理阶段总是很类似，并且会围绕着执行处理的那些重要代码。这就是所谓的环绕执行模式
+
