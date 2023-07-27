@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java实战第二版/Java实战第二版.md",
-                "mode": "source",
+                "file": "大话设计模式/大话设计模式.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "17ad9e2f44201f74",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Java实战第二版/Java实战第二版.md",
+                "file": "大话设计模式/大话设计模式.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Java实战第二版/Java实战第二版.md",
+                "file": "大话设计模式/大话设计模式.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Java实战第二版/Java实战第二版.md"
+                "file": "大话设计模式/大话设计模式.md"
               }
             }
           }
@@ -134,7 +135,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -146,8 +147,9 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "7f7059cc4ba2a484",
+  "active": "3cd7ef88d73af6fd",
   "lastOpenFiles": [
+    "Java实战第二版/Java实战第二版.md",
     "SQL教程/SQL教程.md",
     "Java实战第二版/images/image-20230726171059407.png",
     "Java实战第二版/images/image-20230726170937065.png",
@@ -158,7 +160,6 @@
     "Java实战第二版/images",
     "大话设计模式/大话设计模式.md",
     "大话设计模式/images/Strategy_Pattern_in_UML.png",
-    "Java实战第二版/Java实战第二版.md",
     "大话设计模式/images/image-20230720172556765.png",
     "大话设计模式/images/image-20230720172512421.png",
     "大话设计模式/images/image-20230720171917156.png",
