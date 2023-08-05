@@ -18,19 +18,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "d8251f4398a6dde4",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.3.7"
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -157,7 +146,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "d8251f4398a6dde4",
+  "active": "3cd7ef88d73af6fd",
   "lastOpenFiles": [
     "大话设计模式/images/image-20230802105548793.png",
     "大话设计模式/images/image-20230802102506266.png",
