@@ -194,3 +194,71 @@ order by 字句是可以使用 select 字句中的别名
 order by 也可以使用不在 select 字句中的列，也可以使用聚合函数
 
 不要使用列序号来排序
+
+----
+
+# 4.数据更新
+
+## 1.insert
+
+```sql
+INSERT INTO <表名> (列1，列2，...) VALUES (值1，值2，...)
+```
+
+将列名和值用逗号隔开，分别括在括号内，这种形式称之为 `清单` ，分别可以称为列清单，值清单。
+
+列清单和值清单的数量必须保持一致
+
+原则上执行一次 insert 语句会插入一行数据，因此需要插入多行的时候，需要循环执行相应次数的 insert 语句
+
+如果支持多行 insert 只需要在 values 字句后用逗号隔开，继续写一个 values 字句即可
+
+oracle 需要使用 insert all into ，在values 字句后不能直接书写 values ，需要加上前缀 into <表名> values
+
+如果需要插入默认值只需要填入 `DEFAULT` 即可，也可以在列清单和值清单中直接全部省略对应的值即可
+
+>建议使用关键字的方式，这样更易懂
+
+如果需要从其他表直接复制数据可以使用 insert ... select 语句
+
+```sql
+INSERT INTO xxx SELECT xxx FROM xxx
+```
+
+可以使用 where 进行筛选
+
+可以使用 order by 字句但是无意义，因为不能保证顺序
+
+使用  group by 字句时需要注意列名之间的对应
+
+---
+
+## 2.delete
+
+>drop table 会将整个表删除，包括结构
+>
+>delete 只会删除数据不会删除表结构
+
+```SQL
+DELETE FROM <表名>
+```
+
+delete 和 insert 一样是以记录为基本单位进行操作的
+
+可以在表名后面添加 where 字句限定删除条件
+
+---
+
+>还有一个 truncate 删除语句，这个语句删除效率会比 delete 高很多，但是不能指定 where 条件
+>
+>oracle 中会默认进行事务提交
+
+----
+
+## 3.update
+
+```sql
+UPDATE <表名>
+	SET <列名> =<表达式>
+```
+
