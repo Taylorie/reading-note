@@ -272,3 +272,44 @@ UPDATE <表名>
 
 >需要在同一个处理单元中执行的一系列更新处理的集合
 
+事务开始语句
+
+```sql
+SQL SERVER POSTGRESQL
+BEGIN TRANSACTION
+
+MYSQL
+START TRANSACTION
+
+ORACLE DB2
+无
+```
+
+结束均为 commit
+
+取消 ROLLBACK
+
+---
+
+事务的特性
+
+ACID 特性
+
+1. 原子性 atomicity
+
+   要么全部执行成功，要么全部执行失败
+
+2. 一致性 consistency
+
+   满足预先设定的数据库约束
+
+3. 隔离性 isolation
+
+   事务与事务之间不会受到干扰
+
+4. 持久性 durability
+
+   事务不论在提交还是回滚，数据都会永久保存
+
+---
+
