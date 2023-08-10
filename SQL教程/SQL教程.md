@@ -539,4 +539,128 @@ UPPER()
 
 ### 3.日期函数
 
-当前日期
+当前日期函数
+
+```sql
+CURRENT_DATE -- MySQL ORACLE 
+CAST(CURRENT_TIMESTAMP AS DATE) -- SQL Server
+```
+
+---
+
+当前时间函数
+
+```sql
+CURRENT_TIME -- MySQL ORACLE 
+CAST(CURRENT_TIMESTAMP AS TIME) -- SQL Server
+```
+
+---
+
+当前日期和时间
+
+```sql
+CURRENT_TIMESTAMP -- MySQL SQL Server Oracle
+```
+
+---
+
+截取日期函数
+
+```SQL
+EXTRACT(x FROM x)
+```
+
+获取指定的日期时间元素
+
+x  YEAR MONTH DAY 等等
+
+x CURRENT_TIMESTAMP
+
+---
+
+### 4.转换函数
+
+```sql
+CAST(X AS X)
+```
+
+转换前的值
+
+想要转换的元素类型
+
+---
+
+```sql
+COALEACE()
+NVL(X,X) -- Oracle 简化版，第二的参数为如果第一个为 null 则应该为的值
+```
+
+将 NULL 转换为其他值
+
+返回第一个不是 NULL 的值
+
+---
+
+## 2.谓词
+
+需要满足特定条件的函数，该条件的返回值为真值
+
+1. LIKE
+2. BETWEEN
+3. IS NULL
+4. IS NOT NULL
+5. IN
+6. NOT IN -- 如果参数包含 null 则返回空
+7. EXISTS
+
+第七个有点特殊，只要能匹配上就能为真，在参数的 SELECT 字句中可以用常数
+
+---
+
+## 3.CASE 表达式
+
+```sql
+CASE WHEN <求值表达式> THEN <表达式>
+ 	 WHEN <求值表达式> THEN <表达式>
+ 	 WHEN <求值表达式> THEN <表达式>
+...
+     ELSE <表达式>
+END
+```
+
+如果 when 为真，则 then 
+
+如果都不符合则 else
+
+end 必须存在
+
+else 可以省略，但不建议省略
+
+---
+
+简单CASE
+
+```SQL
+CASE 匹配列 
+	 WHEN <求值> THEN <表达式>
+ 	 WHEN <求值> THEN <表达式>
+ 	 WHEN <求值> THEN <表达式>
+...
+     ELSE <表达式>
+END
+```
+
+只要 匹配列和求值能匹配上就直接返回，无需写表达式，但是这种方式不灵活
+
+---
+
+```sql
+DECODE()
+```
+
+Oracle 简化版本
+
+第一个参数为匹配列，从后面开始，每两个为一个匹配，第一个匹配上，则返回第二个值
+
+最后一个单个为 ELSE
