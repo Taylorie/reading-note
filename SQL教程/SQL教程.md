@@ -763,3 +763,58 @@ SELECT column1 FROM table3
 
 ---
 
+## 2.联结
+
+和集合运算不同，联结是针对列而言，集合运算是针对行而言的
+
+---
+
+### 1. 内联结 INNER JOIN
+
+```sql
+SELECT * FROM
+A INNER JOIN B ON A.x=B.x
+```
+
+---
+
+### 2.外联结 OUTER JOIN 
+
+```SQL
+SELECT * FROM
+A <LEFT/RIGHT> OUTER JOIN B ON A.x=B.x
+```
+
+与内联结不同，外联结会取出一张表中所有的内容，对于不能匹配上的另一张表会用 NULL 代替
+
+那个是主表这是根据 LEFT/RIGHT 来看
+
+---
+
+### 3.多表联结
+
+```sql
+SELECT * FROM
+A INNER JOIN B ON A.x=B.x
+B INNER JOIN C ON B.x=C.x
+```
+
+---
+
+### 4.交叉联结 CROSS JOIN
+
+```SQL
+SELECT * FROM
+A INNER JOIN B ON A.x=B.x
+```
+
+取出所有组合，行数的两表行数相乘，没有联结条件
+
+---
+
+### 5.过时语法
+
+使用 where  来进行联结虽然可行，但是这属于过时语法，不建议使用
+
+---
+
