@@ -991,3 +991,33 @@ SELECT CASE WHEN GROUPING(product_type) = 1
 
 ---
 
+```sql
+select product_type,sum(sale_price)
+from product
+group by cube (product_type);
+```
+
+相对于 rollup 会多出几行记录
+
+>group by()
+>
+>group by(X)
+>
+>group by(Y) -多出的行
+>
+>group by(X,Y)
+
+聚合键个数
+
+rollup n+1 n 为聚合键个数
+
+cube 2<sup>n</sup> n 为聚合键个数
+
+---
+
+我们可以使用 GROUPING SETS 获取指定的分组
+
+使用这个运算符后不会出现全体合计行，只会出现合计行，比如只获取类型和日期，则只会获取按照类型分组，所有日期的产品价格，和按照日期分组，所有类型商品的产品价格
+
+---
+
