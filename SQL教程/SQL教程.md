@@ -952,3 +952,42 @@ mysql 中请更换为 group by *** with rollup
 
 ---
 
+如果按照多个聚合键进行分组，如果出现了按照 null 进行分组，这样就会出现模糊的情况，无法区分这是 null 组还是超级分组记录
+
+如果对多个聚合键进行分组那么就会出现下面的情况，按照这样的情况进行分组
+
+group by(X,Y)
+
+>group by()
+>
+>group by(X)
+>
+>group by(X,Y)
+
+可以视为金字塔模式
+
+---
+
+我们可以使用 GROUPING 函数来区分 null 分组和超级记录分组
+
+此函数在其参数列的值为超级分组记录产生的 null 会返回 1，其他情况则会返回 0
+
+所以我们可以当函数返回为 1 的时候标记为这是合计行，是由超 GROUPING 运算符产生的，反之就是分组函数产生的
+
+```sql
+--Oracle, SQL Server, DB2
+SELECT CASE WHEN GROUPING(product_type) = 1 
+            THEN '商品种类 合计' 
+            ELSE product_type END AS product_type,
+       CASE WHEN GROUPING(regist_date) = 1 
+            THEN '登记日期 合计' 
+            ELSE CAST(regist_date AS VARCHAR(16)) END AS regist_date,
+       SUM(sale_price) AS sum_price
+  FROM Product
+ GROUP BY ROLLUP(product_type, regist_date);
+```
+
+使用 CAST 函数是因为保证 CASE 表达式所有分支返回的数据类型一致
+
+---
+
