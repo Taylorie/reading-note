@@ -892,3 +892,25 @@ AVG 函数也是，分子累加，分母为包括自己前面的列数
 
 ---
 
+我们还可以以当前列为基准选定上下 X 行的数据，这个汇总的范围称之为框架
+
+```sql
+<窗口函数> OVER ([PARTITION BY <列清单>] ORDER BY <排序用列清单>
+            ROW x PRECEDING/FOLLOWING)
+```
+
+PRECEDING 表示选择包含此列以及之前 X 行的数据
+
+FOLLOWING 表示选择包含此列以及之后 X 行的数据
+
+也可以使用 between 同时选择之前和之后
+
+```sql
+<窗口函数> OVER ([PARTITION BY <列清单>] ORDER BY <排序用列清单>
+            ROW BETWEEN X PRECEDING AND Y FOLLOWING)
+```
+
+同时选择当前列之前 X 行，之后 Y 行的数据
+
+---
+
