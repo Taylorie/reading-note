@@ -922,3 +922,33 @@ FOLLOWING 表示选择包含此列以及之后 X 行的数据
 
 ## 2.GROUPING 运算符
 
+在使用分组聚合函数时，是无法直接获取合计所有行的
+
+因为group by 是用来指定聚合键的场所，指挥按照指定列进行分割，不会出现合计行，所有我们可以使用 union all ，来单独获取
+
+使用 union 不能保证不会出现重复行，所以建议使用 union all
+
+但是这样处理成本过高
+
+---
+
+这里我们可以使用 ROLLUP 同时获取合计和小计
+
+```sql
+select product_type,sum(sale_price)
+from product
+group by rollup (product_type);
+```
+
+mysql 中请更换为 group by *** with rollup
+
+这样就会在单独使用分组函数的数据之上出现一个 null type 和 合计行
+
+我们可以看作进行了两次分组，一次按照指定列，一次是将所有数据视为一个分组
+
+这样获取了所有行的记录可以称之为 `超级分组记录`
+
+超级分组记录默认是使用 NULL 作为聚合键
+
+---
+
