@@ -818,3 +818,42 @@ A INNER JOIN B ON A.x=B.x
 
 ---
 
+# 8.SQL 高级处理
+
+## 1.窗口函数
+
+窗口函数也成为 OLAP 函数 Online Analytical Processing
+
+```sql
+<窗口函数> OVER ([PARTITION BY <列清单>] ORDER BY <排序用列清单>)
+```
+
+---
+
+用来计算记录排序的函数
+
+```sql
+select product_id,product_name,product_type,sale_price,
+       rank() over (
+           order by sale_price
+           ) as rank_
+from product;
+```
+
+PARTITION BY 能够是设定排序的对象范围 --横向上对表进行分组
+
+ORDER BY能指定按照哪一列，何种顺序进行排序 --决定了纵向排序的规则
+
+RANK 不会减少原表中的记录行数
+
+窗口函数兼具分组和排序两种功能，窗口表示的是范围，通过 PARTITION BY 分组后的集合称之为窗口
+
+---
+
+PARTITION BY 不是必选项，去掉后会将查询到的数据视作为整个窗口
+
+---
+
+RANK 在遇到相同次位的记录，会跳过之后的次位
+
+>1 - 1 - 3 - 3 - 5
