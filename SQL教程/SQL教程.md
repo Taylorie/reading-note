@@ -940,7 +940,11 @@ from product
 group by rollup (product_type);
 ```
 
-mysql 中请更换为 group by *** with rollup
+mysql 中请更换为 
+
+```sql
+group by *** with rollup
+```
 
 这样就会在单独使用分组函数的数据之上出现一个 null type 和 合计行
 
