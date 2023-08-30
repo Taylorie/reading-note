@@ -173,3 +173,62 @@
 
 ## 表之前的数据匹配
 
+与DECODE函数等相比，CASE表达式的一大优势在于能够判断表达式。也就是说，在CASE表达式里，我们可以使用BETWEEN、LIKE和<、>等便利的谓词组合，以及能嵌套子查询的IN和EXISTS谓词。因此，CASE表达式具有非常强大的表达能力。
+
+```sql
+    --表的匹配：使用IN谓词
+    SELECT course_name,
+          CASE WHEN course_id IN
+                        (SELECT course_id FROM OpenCourses
+                          WHERE month = 200706) THEN'○'
+                ELSE'×'END AS "6月",
+          CASE WHEN course_id IN
+                        (SELECT course_id FROM OpenCourses
+                          WHERE month = 200707) THEN'○'
+                ELSE'×'END AS "7月",
+          CASE WHEN course_id IN
+                        (SELECT course_id FROM OpenCourses
+                          WHERE month = 200708) THEN'○'
+                ELSE'×'END  AS "8月"
+      FROM CourseMaster;
+
+
+    --表的匹配：使用EXISTS谓词
+    SELECT CM.course_name,
+          CASE WHEN EXISTS
+                        (SELECT course_id FROM OpenCourses OC
+                          WHERE month = 200706
+
+                              AND OC.course_id = CM.course_id) THEN'○'
+                  ELSE'×'END AS "6月",
+              CASE WHEN EXISTS
+                          (SELECT course_id FROM OpenCourses OC
+                            WHERE month = 200707
+                              AND OC.course_id = CM.course_id) THEN'○'
+                  ELSE'×'END AS "7月",
+              CASE WHEN EXISTS
+                          (SELECT course_id FROM OpenCourses OC
+                            WHERE month = 200708
+                              AND OC.course_id = CM.course_id) THEN'○'
+                  ELSE'×'END  AS "8月"
+        FROM CourseMaster CM;
+```
+
+---
+
+在CASE表达式中使用聚合函数
+
+接下来介绍一下稍微高级的用法。这个用法乍一看可能让人觉得像是语法错误，实际上却并非如此。我们来看一道例题，假设这里有一张显示了学生及其加入的社团的一览表。如表StudentClub所示，这张表的主键是“学号、社团ID”，存储了学生和社团之间多对多的关系。
+
+```sql
+    SELECT  std_id,
+            CASE WHEN COUNT(＊) = 1  --只加入了一个社团的学生
+                THEN MAX(club_id)
+                ELSE MAX(CASE WHEN main_club_flg ='Y'
+                              THEN club_id
+                              ELSE NULL END)
+            END AS main_club
+      FROM StudentClub
+     GROUP BY std_id;
+```
+
