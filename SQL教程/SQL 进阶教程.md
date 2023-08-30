@@ -104,3 +104,70 @@
 ---
 
 在UPDATE语句里进行条件分支
+
+```sql
+    --条件1
+    UPDATE Salaries
+      SET salary = salary ＊ 0.9
+     WHERE salary >= 300000;
+
+
+    --条件2
+    UPDATE Salaries
+      SET salary = salary ＊ 1.2
+     WHERE salary >= 250000 AND salary < 280000;
+```
+
+```sql
+    --用CASE表达式写正确的更新操作
+    UPDATE Salaries
+      SET salary = CASE WHEN salary >= 300000
+                        THEN salary ＊ 0.9
+                        WHEN salary >= 250000 AND salary < 280000
+                        THEN salary ＊ 1.2
+                        ELSE salary END;
+```
+
+---
+
+调换主键
+
+通常，当我们想调换主键值a和b时，需要将主键值临时转换成某个中间值。使用这种方法时需要执行3次UPDATE操作，但是如果使用CASE表达式，1次就可以做到。
+
+如果在调换上表的主键值a和b时不用CASE表达式，则需要像下面这样写3条SQL语句。
+
+像上面这样做，结果确实没有问题。只是，这里没有必要执行3次UPDATE操作，而且中间值d是否总能使用也是问题。而如果使用CASE表达式，就不必担心这些，1次就可以完成调换。
+
+```sql
+    --1．将a转换为中间值d
+    UPDATE SomeTable
+      SET p_key ='d'
+     WHERE p_key ='a';
+
+
+    --2．将b调换为a
+    UPDATE SomeTable
+      SET p_key ='a'
+
+      WHERE p_key ='b';
+
+
+     --3．将d调换为b
+     UPDATE SomeTable
+        SET p_key ='b'
+      WHERE p_key ='d';
+```
+
+```sql
+    --用CASE表达式调换主键值
+    UPDATE SomeTable
+      SET p_key = CASE WHEN p_key ='a'
+                        THEN 'b'
+                        WHEN p_key ='b'
+                        THEN 'a'
+                        ELSE p_key END
+     WHERE p_key IN ('a', 'b');
+```
+
+---
+
