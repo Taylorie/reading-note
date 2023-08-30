@@ -66,5 +66,35 @@
 
 除了SUM, COUNT、AVG等聚合函数也都可以用于将行结构的数据转换成列结构的数据
 
+![image-20230830102416144](images/image-20230830102416144.png)
 
+![image-20230830102408668](images/image-20230830102408668.png)
 
+---
+
+用CHECK约束定义多个列的条件关系
+
+假设某公司规定“女性员工的工资必须在20万日元以下”，而在这个公司的人事表中，这条无理的规定是使用CHECK约束来描述的，代码如下所示。
+
+```sql
+    CONSTRAINT check_salary CHECK
+              ( CASE WHEN sex ='2'
+                      THEN CASE WHEN salary <= 200000
+                              THEN 1 ELSE 0 END
+                      ELSE 1 END = 1 )
+```
+
+在这段代码里，CASE表达式被嵌入到CHECK约束里，描述了“如果是女性员工，则工资是20万日元以下”这个命题。
+
+在命题逻辑中，该命题是叫作蕴含式（conditional）的逻辑表达式，记作P→Q。这里需要重点理解的是蕴含式和逻辑与（logical product）的区别。
+
+逻辑与也是一个逻辑表达式，意思是“P且Q”，记作P∧Q。用逻辑与改写的CHECK约束如下所示。
+
+```sql
+    CONSTRAINT check_salary CHECK
+              ( sex ='2'AND salary <= 200000 )
+```
+
+![image-20230830102617170](images/image-20230830102617170.png)
+
+![image-20230830102628642](images/image-20230830102628642.png)
