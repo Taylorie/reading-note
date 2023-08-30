@@ -34,3 +34,37 @@
 后期需要修改的时候，很容易发生只改了这一处而忘掉改另一处的失误。所以，如果我们可以像上面这样写，那就方便多了。
 
 没错，这里的GROUP BY子句使用的正是SELECT子句里定义的列的别称——district。但是严格来说，这种写法是 `违反标准SQL的规则 `的。因为GROUP BY子句比SELECT语句先执行，所以在GROUP BY子句中引用在SELECT子句里定义的别称是不被允许的。事实上，在Oracle、DB2、SQL Server等数据库里采用这种写法时就会出错。
+
+---
+
+```SQL
+    -- 男性人口
+    SELECT pref_name,
+          SUM(population)
+      FROM PopTbl2
+     WHERE sex ='1'
+     GROUP BY pref_name;
+
+
+    -- 女性人口
+    SELECT pref_name,
+          SUM(population)
+      FROM PopTbl2
+     WHERE sex ='2'
+     GROUP BY pref_name;
+```
+
+```SQL
+    SELECT pref_name,
+          --男性人口
+          SUM( CASE WHEN sex ='1'THEN population ELSE 0 END) AS cnt_m,
+          --女性人口
+          SUM( CASE WHEN sex ='2'THEN population ELSE 0 END) AS cnt_f
+      FROM  PopTbl2
+     GROUP BY pref_name;
+```
+
+除了SUM, COUNT、AVG等聚合函数也都可以用于将行结构的数据转换成列结构的数据
+
+
+
