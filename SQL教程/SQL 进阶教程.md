@@ -292,4 +292,75 @@ CASE表达式经常会因为同VB和C语言里的CASE“语句”混淆而被叫
 
 ---
 
-如果需要消除相同元素除了使用 distinct 
+如果需要消除相同元素可以使用 `<>`
+
+如果需要消除有序对（元素相同，但是顺序不同）可以使用 `>`
+
+---
+
+## 2.2.删除重复行
+
+```sql
+    --用于删除重复行的SQL语句(1)：使用极值函数
+    DELETE FROM Products P1
+     WHERE rowid < ( SELECT MAX(P2.rowid)
+                      FROM Products P2
+                      WHERE P1.name = P2. name
+                        AND P1.price = P2.price ) ;
+```
+
+```sql
+    --用于删除重复行的SQL语句(2)：使用非等值连接
+    DELETE FROM Products P1
+     WHERE EXISTS ( SELECT ＊
+                      FROM Products P2
+                    WHERE P1.name = P2.name
+                      AND P1.price = P2.price
+                      AND P1.rowid < P2.rowid );
+```
+
+---
+
+## 2.3.查找局部数据不同
+
+```sql
+    --用于查找是同一家人但住址却不同的记录的SQL语句
+    SELECT DISTINCT A1.name, A1.address
+      FROM Addresses A1, Addresses A2
+     WHERE A1.family_id = A2.family_id
+      AND A1.address <> A2.address ;
+```
+
+---
+
+## 2.4.排序
+
+```sql
+    --排序：使用窗口函数
+    SELECT name, price,
+          RANK() OVER (ORDER BY price DESC) AS rank_1,
+          DENSE_RANK() OVER (ORDER BY price DESC) AS rank_2
+      FROM Products;
+```
+
+使用下面子查询的方式也能达到上面使用窗口函数的效果
+
+```sql
+    --排序从1开始。如果已出现相同位次，则跳过之后的位次
+    SELECT P1.name,
+          P1.price,
+          (SELECT COUNT(P2.price)
+              FROM Products P2
+            WHERE P2.price > P1.price) + 1 AS rank_1
+      FROM Products P1
+      ORDER BY rank_1;
+```
+
+如果需要实现 `dense_rank` 的效果可以在 `count` 函数中添加 `distinct`
+
+![image-20230908172155928](images/image-20230908172155928.png)
+
+![image-20230908172245326](images/image-20230908172245326-16941649662741.png)
+
+---
+
