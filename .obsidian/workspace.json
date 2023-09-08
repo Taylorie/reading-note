@@ -69,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 273.5
   },
   "right": {
     "id": "17ad9e2f44201f74",
@@ -146,35 +146,35 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "3af9b7e0efe5bc15",
+  "active": "3cd7ef88d73af6fd",
   "lastOpenFiles": [
+    "SQL教程/SQL 进阶教程.md",
+    "SQL教程/SQL教程.md",
+    "README.md",
+    "Java实战第二版/Java实战第二版.md",
+    "大话设计模式/大话设计模式.md",
     "SQL教程/images/image-20230830103549038.png",
     "SQL教程/images/image-20230830102628642.png",
     "SQL教程/images/image-20230830102617170.png",
     "SQL教程/images/image-20230830102416144.png",
     "SQL教程/images/image-20230830102408668.png",
-    "SQL教程/images/image-20230830100004516.png",
     "SQL教程/images/image-20230830100013291.png",
+    "SQL教程/images/image-20230830100004516.png",
     "SQL教程/images",
-    "SQL教程/SQL 进阶教程.md",
-    "Java实战第二版/Java实战第二版.md",
-    "大话设计模式/大话设计模式.md",
+    "SQL教程/SQL 进阶教程",
+    "SQL教程/新建 文本文档.txt",
     "大话设计模式/images/image-20230802105548793.png",
     "大话设计模式/images/image-20230802102506266.png",
     "conflict-files-obsidian-git.md",
     "大话设计模式/images/image-20230727104250829.png",
-    "大话设计模式/images/image-20230727104243020.png",
     "Java实战第二版/images",
     "漫画算法：小灰的算法之旅/漫画算法：小灰的算法之旅.md",
-    "SQL教程/SQL教程.md",
     "大话设计模式/images",
-    "SQL教程/新建 文本文档.txt",
     "SQL教程/新建文件夹",
     "SQL教程",
     "新建文件夹",
     "Java实战第二版",
     "大话设计模式",
-    "漫画算法：小灰的算法之旅/images",
     "漫画算法：小灰的算法之旅/漫画suanfa：小灰的算法之旅.md",
     "算法漫画：小灰的算法之旅/漫画suanfa：小灰的算法之旅.md",
     "算法漫画：小灰的算法之旅/算法漫画：小灰的算法之旅.md"
