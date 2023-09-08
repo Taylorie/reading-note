@@ -362,5 +362,20 @@ CASE表达式经常会因为同VB和C语言里的CASE“语句”混淆而被叫
 
 ![image-20230908172245326](images/image-20230908172245326-16941649662741.png)
 
----
+使用自连接
+
+```sql
+    --排序：使用自连接
+    SELECT P1.name,
+          MAX(P1.price) AS price,
+          COUNT(P2.name) +1 AS rank_1
+      FROM Products P1 LEFT OUTER JOIN Products P2
+        ON P1.price < P2.price
+     GROUP BY P1.name
+     ORDER BY rank_1;
+```
+
+
+
+
 
