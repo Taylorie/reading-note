@@ -15,7 +15,7 @@
 
 ---
 
-## CASE 表达式注意事项
+## 1.1CASE 表达式注意事项
 
 注意事项1：统一各分支返回的数据类型虽然这一点无需多言，但这里还是要强调一下：一定要注意CASE表达式里各个分支返回的 `数据类型 `是否 `一致 `。某个分支返回字符型，而其他分支返回数值型的写法是不正确的。
 
@@ -97,7 +97,7 @@
 
 ![image-20230830102617170](images/image-20230830102617170.png)
 
-## 逻辑与 和 蕴含式
+## 1.2逻辑与 和 蕴含式
 
 ![image-20230830102628642](images/image-20230830102628642.png)
 
@@ -171,7 +171,7 @@
 
 ---
 
-## 表之前的数据匹配
+## 1.3表之前的数据匹配
 
 与DECODE函数等相比，CASE表达式的一大优势在于能够判断表达式。也就是说，在CASE表达式里，我们可以使用BETWEEN、LIKE和<、>等便利的谓词组合，以及能嵌套子查询的IN和EXISTS谓词。因此，CASE表达式具有非常强大的表达能力。
 
@@ -271,4 +271,111 @@ CASE表达式经常会因为同VB和C语言里的CASE“语句”混淆而被叫
 ---
 
 # 2.自连接的用法
+
+## 2.1.有序对和无序对
+
+组合其实分为两种类型
+
+一种是有顺序的`有序对`（ordered pair）
+
+另一种是无顺序的`无序对`（unordered pair）。
+
+有序对用`尖括号`括起来，如<1, 2>
+
+无序对用`花括号`括起来，如{1, 2}。
+
+在有序对里，如果元素顺序相反，那就是不同的对，因此<1, 2>≠<2, 1>
+
+而无序对与顺序无关，因此{1, 2}＝{2, 1}。
+
+用学校里学到的术语来说，这两类分别对应着“排列”和“组合”
+
+---
+
+如果需要消除相同元素可以使用 `<>`
+
+如果需要消除有序对（元素相同，但是顺序不同）可以使用 `>`
+
+---
+
+## 2.2.删除重复行
+
+```sql
+    --用于删除重复行的SQL语句(1)：使用极值函数
+    DELETE FROM Products P1
+     WHERE rowid < ( SELECT MAX(P2.rowid)
+                      FROM Products P2
+                      WHERE P1.name = P2. name
+                        AND P1.price = P2.price ) ;
+```
+
+```sql
+    --用于删除重复行的SQL语句(2)：使用非等值连接
+    DELETE FROM Products P1
+     WHERE EXISTS ( SELECT ＊
+                      FROM Products P2
+                    WHERE P1.name = P2.name
+                      AND P1.price = P2.price
+                      AND P1.rowid < P2.rowid );
+```
+
+---
+
+## 2.3.查找局部数据不同
+
+```sql
+    --用于查找是同一家人但住址却不同的记录的SQL语句
+    SELECT DISTINCT A1.name, A1.address
+      FROM Addresses A1, Addresses A2
+     WHERE A1.family_id = A2.family_id
+      AND A1.address <> A2.address ;
+```
+
+---
+
+## 2.4.排序
+
+```sql
+    --排序：使用窗口函数
+    SELECT name, price,
+          RANK() OVER (ORDER BY price DESC) AS rank_1,
+          DENSE_RANK() OVER (ORDER BY price DESC) AS rank_2
+      FROM Products;
+```
+
+使用下面子查询的方式也能达到上面使用窗口函数的效果
+
+```sql
+    --排序从1开始。如果已出现相同位次，则跳过之后的位次
+    SELECT P1.name,
+          P1.price,
+          (SELECT COUNT(P2.price)
+              FROM Products P2
+            WHERE P2.price > P1.price) + 1 AS rank_1
+      FROM Products P1
+      ORDER BY rank_1;
+```
+
+如果需要实现 `dense_rank` 的效果可以在 `count` 函数中添加 `distinct`
+
+![image-20230908172155928](images/image-20230908172155928.png)
+
+![image-20230908172245326](images/image-20230908172245326-16941649662741.png)
+
+使用自连接
+
+```sql
+    --排序：使用自连接
+    SELECT P1.name,
+          MAX(P1.price) AS price,
+          COUNT(P2.name) +1 AS rank_1
+      FROM Products P1 LEFT OUTER JOIN Products P2
+        ON P1.price < P2.price
+     GROUP BY P1.name
+     ORDER BY rank_1;
+```
+
+
+
+
 
